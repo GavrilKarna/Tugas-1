@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Statistik Produk</title>
+</head>
+<body>
+
+<h1>Statistik Produk</h1>
+
+<p>Total Produk: <span th:text="${totalProducts}"></span></p>
+
+<h3>Total Per Kategori</h3>
+<ul>
+    <li th:each="entry : ${totalPerCategory}">
+        <span th:text="${entry.key}"></span> :
+        <span th:text="${entry.value}"></span>
+    </li>
+</ul>
+
+<p>Produk Termahal:
+    <span th:text="${mostExpensive.name}"></span>
+</p>
+
+<p>Produk Termurah:
+    <span th:text="${cheapest.name}"></span>
+</p>
+
+<p>Rata-rata Harga:
+    <span th:text="${averagePrice}"></span>
+</p>
+
+<p>Jumlah Produk Stok &lt; 20:
+    <span th:text="${lowStockCount}"></span>
+</p>
+
+</body>
+</html>

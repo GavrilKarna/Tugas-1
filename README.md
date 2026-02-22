@@ -1,0 +1,1 @@
+Nama : Gavril Ziro Karna Nim : 2482008 Matkul : Pemrograman Web 2 Tugas-1
