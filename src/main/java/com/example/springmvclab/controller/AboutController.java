@@ -19,7 +19,7 @@ public class AboutController {
         List<String> technologies = List.of(
                 "Spring Boot",
                 "Thymeleaf",
-                "Bootstrap",
+                "Tailwind CSS",
                 "Java 25"
         );
 

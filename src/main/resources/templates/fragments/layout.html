@@ -2,25 +2,44 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <!-- Fragment: Navbar -->
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" th:href="@{/}">Spring MVC Lab</a>
-        <div class="navbar-nav">
-            <a class="nav-link" th:href="@{/}">Home</a>
-            <a class="nav-link" th:href="@{/products}">Produk</a>
-            <a class="nav-link" th:href="@{/about}">About</a>
-            <a class="nav-link" th:href="@{/statistics}">Statistik</a>
+<nav th:fragment="navbar"
+     class="bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg">
+
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+        <a th:href="@{/}"
+           class="text-white text-2xl font-bold tracking-wide hover:opacity-90 transition">
+            Spring MVC Lab
+        </a>
+
+        <div class="flex space-x-6 text-white font-medium">
+            <a th:href="@{/}"
+               class="hover:text-blue-100 transition">Home</a>
+
+            <a th:href="@{/products}"
+               class="hover:text-blue-100 transition">Produk</a>
+
+            <a th:href="@{/about}"
+               class="hover:text-blue-100 transition">About</a>
+
+            <a th:href="@{/statistics}"
+               class="hover:text-blue-100 transition">Statistik</a>
         </div>
+
     </div>
 </nav>
 
 <!-- Fragment: Footer -->
-<footer th:fragment="footer" class="bg-light text-center py-3 mt-5">
-    <div class="container">
-        <p class="text-muted mb-0">
-            Spring MVC Lab &copy; 2026 | WEB-202 Week 4
+<footer th:fragment="footer"
+        class="bg-white/70 backdrop-blur-md border-t border-blue-200 mt-10">
+
+    <div class="max-w-6xl mx-auto px-6 py-6 text-center">
+        <p class="text-gray-600">
+            <span class="font-semibold text-blue-600">Spring MVC Lab</span>
+            &copy; 2026 | WEB-202 Week 4
         </p>
     </div>
+
 </footer>
 
 </html>

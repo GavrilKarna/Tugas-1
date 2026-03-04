@@ -2,36 +2,82 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Statistik Produk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gradient-to-br from-sky-100 via-blue-100 to-cyan-100 min-h-screen flex items-center justify-center p-6">
 
-<h1>Statistik Produk</h1>
+<div class="bg-white/70 backdrop-blur-md shadow-2xl rounded-2xl p-10 w-full max-w-4xl border border-blue-200">
 
-<p>Total Produk: <span th:text="${totalProducts}"></span></p>
+    <h1 class="text-4xl font-bold text-blue-600 mb-8 text-center">
+        Statistik Produk
+    </h1>
 
-<h3>Total Per Kategori</h3>
-<ul>
-    <li th:each="entry : ${totalPerCategory}">
-        <span th:text="${entry.key}"></span> :
-        <span th:text="${entry.value}"></span>
-    </li>
-</ul>
+    <!-- Ringkasan Utama -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 
-<p>Produk Termahal:
-    <span th:text="${mostExpensive.name}"></span>
-</p>
+        <div class="bg-blue-100 p-6 rounded-xl shadow text-center">
+            <p class="text-gray-600">Total Produk</p>
+            <p class="text-3xl font-bold text-blue-700"
+               th:text="${totalProducts}"></p>
+        </div>
 
-<p>Produk Termurah:
-    <span th:text="${cheapest.name}"></span>
-</p>
+        <div class="bg-blue-100 p-6 rounded-xl shadow text-center">
+            <p class="text-gray-600">Rata-rata Harga</p>
+            <p class="text-3xl font-bold text-blue-700"
+               th:text="${averagePrice}"></p>
+        </div>
 
-<p>Rata-rata Harga:
-    <span th:text="${averagePrice}"></span>
-</p>
+    </div>
 
-<p>Jumlah Produk Stok &lt; 20:
-    <span th:text="${lowStockCount}"></span>
-</p>
+    <!-- Total Per Kategori -->
+    <div class="mb-8">
+        <h3 class="text-2xl font-semibold text-blue-500 mb-4 border-b border-blue-200 pb-2">
+            Total Per Kategori
+        </h3>
+
+        <ul class="space-y-2">
+            <li th:each="entry : ${totalPerCategory}"
+                class="flex justify-between bg-blue-50 px-4 py-2 rounded-lg shadow-sm">
+                <span class="font-medium text-blue-600"
+                      th:text="${entry.key}"></span>
+                <span class="font-bold text-blue-700"
+                      th:text="${entry.value}"></span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Informasi Tambahan -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+        <div class="bg-white border border-blue-200 p-5 rounded-xl shadow">
+            <p class="text-gray-600">Produk Termahal</p>
+            <p class="text-xl font-semibold text-blue-600"
+               th:text="${mostExpensive.name}"></p>
+        </div>
+
+        <div class="bg-white border border-blue-200 p-5 rounded-xl shadow">
+            <p class="text-gray-600">Produk Termurah</p>
+            <p class="text-xl font-semibold text-blue-600"
+               th:text="${cheapest.name}"></p>
+        </div>
+
+        <div class="bg-white border border-blue-200 p-5 rounded-xl shadow md:col-span-2">
+            <p class="text-gray-600">Jumlah Produk Stok &lt; 20</p>
+            <p class="text-xl font-semibold text-blue-600"
+               th:text="${lowStockCount}"></p>
+        </div>
+
+    </div>
+
+    <!-- Tombol Home -->
+    <div class="text-center mt-6">
+        <a th:href="@{/}"
+           class="inline-block bg-blue-500 text-white px-8 py-3 rounded-xl shadow-md hover:bg-blue-600 hover:scale-105 transition duration-300">
+            Home
+        </a>
+    </div>
+
+</div>
 
 </body>
 </html>
